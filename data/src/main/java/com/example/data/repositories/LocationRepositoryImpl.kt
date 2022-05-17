@@ -9,7 +9,8 @@ import javax.inject.Inject
 class LocationRepositoryImpl @Inject constructor(
     private val service: LocationApiService
 ) : BaseRepository(), LocationRepository {
-    override fun fetchLocation(page: Int, name: String) = doRequest {
-        service.fetchLocations(page, name).results.map { it.toDomain() }
-    }
+    override fun fetchLocation(page: Int, name: String, type: String, dimension: String) =
+        doRequest {
+            service.fetchLocations(page, name, type, dimension).results.map { it.toDomain() }
+        }
 }

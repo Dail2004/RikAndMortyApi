@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#252525"
-    tools:context="com.dail.reckandmortyapi.presentation.ui.fragment.details.LocationDetailFragment">
+    tools:context="com.dail.reckandmortyapi.presentation.ui.fragment.details.LocationDetailCharacterFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

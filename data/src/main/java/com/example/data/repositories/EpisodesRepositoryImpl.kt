@@ -9,8 +9,8 @@ import javax.inject.Inject
 class EpisodesRepositoryImpl @Inject constructor(
     private val service: EpisodeApiService
 ) : BaseRepository(), EpisodesRepository {
-    override fun fetchEpisode(page: Int, name: String) = doRequest {
-        service.fetchEpisodes(page, name).results.map { it.toDomain() }
+    override fun fetchEpisode(page: Int, name: String, episode: String) = doRequest {
+        service.fetchEpisodes(page, name, episode).results.map { it.toDomain() }
     }
 
 }

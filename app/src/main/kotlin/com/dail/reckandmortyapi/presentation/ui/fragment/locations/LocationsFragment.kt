@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
+import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.dail.reckandmortyapi.presentation.base.BaseFragment
 import com.dail.reckandmortyapi.presentation.base.extension.scrollListenNextPage
@@ -27,6 +29,7 @@ class LocationsFragment :
         this::onItemClick
     )
     private val locations = ArrayList<LocationsUI>(adapter.currentList)
+    private val args: LocationsFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setHasOptionsMenu(true)
@@ -38,6 +41,13 @@ class LocationsFragment :
 
         val search = menu.findItem(R.id.search)
         val searchView = search.actionView as? SearchView
+
+        val filter = menu.findItem(R.id.filter)
+        val filterView = filter.actionView as Button
+
+        filterView.setOnClickListener {
+            findNavController().navigate(R.id.dialogFilterLocationFragment)
+        }
 
         searchView?.isSubmitButtonEnabled = true
 
@@ -63,6 +73,12 @@ class LocationsFragment :
     override fun setupRequests() {
         binding.locationRecycler.adapter = adapter
         binding.locationRecycler.scrollListenNextPage(viewModel)
+        argsNav()
+    }
+
+    private fun argsNav() {
+        viewModel.fetchLocations(1, "", args.dimension.toString(), args.type.toString())
+        locations.clear()
     }
 
     override fun setupSubscribes() {

@@ -31,9 +31,9 @@ class SearchFragment :
     )
 
     private fun fetchFilter(s: String) {
-        viewModel.fetchLocations(1, s)
-        viewModel.fetchCharacters(1, s)
-        viewModel.fetchEpisodes(1, s)
+        viewModel.fetchLocations(1, s, "", "")
+        viewModel.fetchCharacters(1, s, "")
+        viewModel.fetchEpisodes(1, s, "")
     }
 
     override fun setupRequests() {

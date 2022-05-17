@@ -1,12 +1,15 @@
 package com.dail.reckandmortyapi.presentation.ui.fragment.characters
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
+import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.dail.reckandmortyapi.presentation.base.BaseFragment
 import com.dail.reckandmortyapi.presentation.base.extension.scrollListenNextPage
@@ -24,6 +27,7 @@ class CharactersFragment(
     BaseFragment<CharactersViewModel, FragmentCharactersBinding>(R.layout.fragment_characters) {
     override val viewModel: CharactersViewModel by viewModels()
     override val binding by viewBinding(FragmentCharactersBinding::bind)
+    private val args: CharactersFragmentArgs by navArgs()
     private val adapter = CharacterAdapter(
         this::onItemClick,
         this::fetchFirstSeenIn,
@@ -46,6 +50,7 @@ class CharactersFragment(
     }
 
     private fun fetchFirstSeenIn(position: Int, episodeUrl: String) {
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,11 +58,19 @@ class CharactersFragment(
         super.onCreate(savedInstanceState)
     }
 
+    @SuppressLint("ResourceType")
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.search_menu, menu)
 
         val search = menu.findItem(R.id.search)
         val searchView = search.actionView as? SearchView
+
+        val filter = menu.findItem(R.id.filter)
+        val filterView = filter.actionView as Button
+
+        filterView.setOnClickListener {
+            findNavController().navigate(R.id.dialogFilterFragment)
+        }
 
         searchView?.isSubmitButtonEnabled = true
 
@@ -84,6 +97,13 @@ class CharactersFragment(
         binding.charactersRecycler.adapter = adapter
         binding.charactersRecycler.scrollListenNextPage(viewModel)
         binding.charactersRecycler.setHasFixedSize(true)
+        argsNav()
+        viewModel.fetchCharacters(1, "", args.status.toString())
+    }
+
+    private fun argsNav() {
+        viewModel.fetchCharacters(1, "", args.status.toString())
+        characters.clear()
     }
 
     override fun setupSubscribes() {

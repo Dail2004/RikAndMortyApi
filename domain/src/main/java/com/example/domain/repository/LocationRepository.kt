@@ -5,5 +5,5 @@ import com.example.domain.model.location.LocationsModel
 import kotlinx.coroutines.flow.Flow
 
 interface LocationRepository {
-    fun fetchLocation(page: Int, name: String): Flow<Resource<List<LocationsModel>>>
+    fun fetchLocation(page: Int, name: String, type: String, dimension: String): Flow<Resource<List<LocationsModel>>>
 }

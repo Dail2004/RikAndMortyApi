@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
+import android.widget.Button
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.dail.reckandmortyapi.presentation.base.BaseFragment
 import com.dail.reckandmortyapi.presentation.base.extension.scrollListenNextPage
@@ -25,6 +27,7 @@ class EpisodesFragment :
     override val binding by viewBinding(FragmentEpisodesBinding::bind)
     private val adapter = EpisodeAdapter(this::onItemClick)
     private val episodes = ArrayList<EpisodesUI>(adapter.currentList)
+    private val args: EpisodesFragmentArgs by navArgs()
 
     private fun onItemClick(name: String, id: Int) {
         findNavController().navigate(
@@ -46,6 +49,13 @@ class EpisodesFragment :
 
         val search = menu.findItem(R.id.search)
         val searchView = search.actionView as? SearchView
+
+        val filter = menu.findItem(R.id.filter)
+        val filterView = filter.actionView as Button
+
+        filterView.setOnClickListener {
+            findNavController().navigate(R.id.dialogFilterEpisodeFragment)
+        }
 
         searchView?.isSubmitButtonEnabled = true
 
@@ -71,6 +81,12 @@ class EpisodesFragment :
     override fun setupRequests() {
         binding.episodesRecycler.adapter = adapter
         binding.episodesRecycler.scrollListenNextPage(viewModel)
+        argsNav()
+    }
+
+    private fun argsNav() {
+        viewModel.fetchEpisodes(1, args.name.toString(), args.episode.toString())
+        episodes.clear()
     }
 
     override fun setupSubscribes() {

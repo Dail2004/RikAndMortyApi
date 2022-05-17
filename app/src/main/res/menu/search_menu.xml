@@ -12,4 +12,13 @@
         app:showAsAction="ifRoom|collapseActionView"
         tools:targetApi="o" />
 
+    <item
+        android:id="@+id/filter"
+        android:icon="@drawable/filter"
+        android:iconTint="@color/white"
+        android:title="Filter"
+        app:actionViewClass="android.widget.Button"
+        app:showAsAction="ifRoom"
+        tools:targetApi="o" />
+
 </menu>

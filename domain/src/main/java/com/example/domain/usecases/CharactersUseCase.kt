@@ -6,5 +6,6 @@ import javax.inject.Inject
 class CharactersUseCase @Inject constructor(
     private val repository: CharactersRepository
 ) {
-    operator fun invoke(page:   Int, name: String) = repository.fetchCharacters(page, name)
+    operator fun invoke(page: Int, name: String, status: String) =
+        repository.fetchCharacters(page, name, status)
 }

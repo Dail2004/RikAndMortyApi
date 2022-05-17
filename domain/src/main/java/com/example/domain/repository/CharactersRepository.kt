@@ -5,7 +5,7 @@ import com.example.domain.model.character.CharactersModel
 import kotlinx.coroutines.flow.Flow
 
 interface CharactersRepository {
-    fun fetchCharacters(page: Int, name: String): Flow<Resource<List<CharactersModel>>>
+    fun fetchCharacters(page: Int, name: String, status: String): Flow<Resource<List<CharactersModel>>>
 
     fun fetchCharacter(id: Int): Flow<Resource<CharactersModel>>
 }

@@ -51,24 +51,25 @@ class CharactersViewModel @Inject constructor(
     }
 
     init {
-        fetchCharacters(page, "")
+        fetchCharacters(page, "", "")
     }
 
-    override fun fetchCharacters(page: Int, name: String) {
+    override fun fetchCharacters(page: Int, name: String, status: String) {
         fetchCharactersUseCase(
             page,
-            name
+            name,
+            status
         ).collectRequests(_charactersState) { it.map { data -> data.toUI() } }
+    }
+
+    override fun fetchLocations(page: Int, name: String, type: String, dimension: String) {
+    }
+
+    override fun fetchEpisodes(page: Int, name: String, episode: String) {
     }
 
     fun fetchCharacter(id: Int) {
         fetchCharacterUseCase(id).collectRequest(_characterState) { it.toUI() }
-    }
-
-    override fun fetchLocations(page: Int, name: String) {
-    }
-
-    override fun fetchEpisodes(page: Int, name: String) {
     }
 
     private fun onSearch(query: String) {
@@ -76,8 +77,8 @@ class CharactersViewModel @Inject constructor(
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
             delay(TIME_MILLIS)
-            fetchCharacters(page, query)
-            Log.d("fuck", "onSearch: ${fetchCharacters(page, query)}")
+            fetchCharacters(page, query, "")
+            Log.d("fuck", "onSearch: ${fetchCharacters(page, query, "")}")
         }
     }
 }

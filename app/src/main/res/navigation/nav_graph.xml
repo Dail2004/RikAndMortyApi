@@ -23,7 +23,7 @@
             android:defaultValue=""
             app:argType="string"
             app:nullable="true" />
-    </fragment>
+        </fragment>
     <fragment
         android:id="@+id/episodesFragment"
         android:name="com.dail.reckandmortyapi.presentation.ui.fragment.episodes.EpisodesFragment"
@@ -53,13 +53,13 @@
             app:destination="@id/locationDetailFragment" />
         <argument
             android:name="type"
-            android:defaultValue=""
             app:argType="string"
+            android:defaultValue=""
             app:nullable="true" />
         <argument
             android:name="dimension"
-            android:defaultValue=""
             app:argType="string"
+            android:defaultValue=""
             app:nullable="true" />
         <action
             android:id="@+id/action_locationsFragment_to_locationDetailFragment"
@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/locationDetailFragment"
-        android:name="com.dail.reckandmortyapi.presentation.ui.fragment.details.LocationDetailFragment"
+        android:name="com.dail.reckandmortyapi.presentation.ui.fragment.details.LocationDetailCharacterFragment"
         android:label="{label}">
         <argument
             android:name="label"
@@ -115,4 +115,40 @@
             android:id="@+id/action_searchFragment_to_locationDetailFragment"
             app:destination="@id/locationDetailFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/dialogFilterFragment"
+        android:name="com.dail.reckandmortyapi.presentation.ui.fragment.characters.DialogFilterFragment"
+        android:label="fragment_dialog_filter"
+        tools:layout="@layout/fragment_dialog_filter_character" >
+        <action
+            android:id="@+id/dialogFragment_to_characters"
+            app:destination="@id/charactersFragment"/>
+    </dialog>
+    <dialog
+        android:id="@+id/dialogFilterEpisodeFragment"
+        android:name="com.dail.reckandmortyapi.presentation.ui.fragment.episodes.DialogFilterEpisodeFragment"
+        android:label="fragment_dialog_filter_episode"
+        tools:layout="@layout/fragment_dialog_filter_episode" >
+        <action
+            android:id="@+id/action_dialogFilterEpisodeFragment_to_episodesFragment"
+            app:destination="@id/episodesFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/dialogFilterLocationFragment"
+        android:name="com.dail.reckandmortyapi.presentation.ui.fragment.locations.DialogFilterLocationFragment"
+        android:label="fragment_dialog_filter_location"
+        tools:layout="@layout/fragment_dialog_filter_location" >
+        <action
+            android:id="@+id/action_dialogFilterLocationFragment_to_locationsFragment"
+            app:destination="@id/locationsFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/dialogFilterSearchFragment"
+        android:name="com.dail.reckandmortyapi.presentation.ui.fragment.search.DialogFilterSearchFragment"
+        android:label="fragment_dialog_filter_search"
+        tools:layout="@layout/fragment_dialog_filter_search" >
+        <action
+            android:id="@+id/action_dialogFilterSearchFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </dialog>
 </navigation>

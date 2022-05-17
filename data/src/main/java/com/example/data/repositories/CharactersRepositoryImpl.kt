@@ -10,8 +10,8 @@ class CharactersRepositoryImpl @Inject constructor(
     private val service: CharactersApiService
 ) : BaseRepository(), CharactersRepository {
 
-    override fun fetchCharacters(page: Int, name: String) = doRequest {
-        service.fetchCharacters(page, name).results.map { it.toDomain() }
+    override fun fetchCharacters(page: Int, name: String, status: String) = doRequest {
+        service.fetchCharacters(page, name, status).results.map { it.toDomain() }
     }
 
     override fun fetchCharacter(id: Int) = doRequest {

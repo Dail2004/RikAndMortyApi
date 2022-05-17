@@ -9,6 +9,7 @@ interface EpisodeApiService {
     @GET("episode")
     suspend fun fetchEpisodes(
         @Query("page") page: Int,
-        @Query("name") name: String
+        @Query("name") name: String,
+        @Query("episode") episode: String
     ): ResponseDto<EpisodeDto>
 }

@@ -14,7 +14,11 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_character.xml" value="0.225" />
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_character_detail.xml" value="0.22" />
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_characters.xml" value="0.25" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_dialog_filter.xml" value="0.225" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_dialog_filter.xml" value="0.2" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_dialog_filter_character.xml" value="0.225" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_dialog_filter_episode.xml" value="0.225" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_dialog_filter_location.xml" value="0.225" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_dialog_filter_search.xml" value="0.225" />
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_episode.xml" value="0.225" />
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_episode_detail.xml" value="0.225" />
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_episodes.xml" value="0.225" />
@@ -25,6 +29,7 @@
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/fragment_search_detail.xml" value="0.225" />
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/location_item.xml" value="0.33" />
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/layout/search_item.xml" value="0.225" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/menu-v26/search_menu.xml" value="0.225" />
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/menu/bottom_navigation.xml" value="0.225" />
         <entry key="..\:/Users/User/AndroidStudioProjects/RikAndMortyApi/app/src/main/res/menu/search_menu.xml" value="0.225" />
       </map>

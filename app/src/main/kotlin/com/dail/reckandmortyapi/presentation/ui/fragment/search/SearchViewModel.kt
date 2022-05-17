@@ -61,13 +61,13 @@ class SearchViewModel @Inject constructor(
 
     override var page = 1
 
-    override fun fetchCharacters(page: Int, name: String) {
+    override fun fetchCharacters(page: Int, name: String, status: String) {
         characterUseCase(
             name
         ).collectRequest(_charactersState) { it.map { data -> data.toUI().toUI() } }
     }
 
-    override fun fetchEpisodes(page: Int, name: String) {
+    override fun fetchEpisodes(page: Int, name: String, episode: String) {
         episodeCase(name).collectRequest(_episodesState) {
             it.map { data ->
                 data.toUI().toUI()
@@ -75,7 +75,7 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    override fun fetchLocations(page: Int, name: String) {
+    override fun fetchLocations(page: Int, name: String, type: String, dimension: String) {
         locationUseCase(name).collectRequest(_locationsState) {
             it.map { data ->
                 data.toUI().toUI()
@@ -88,15 +88,15 @@ class SearchViewModel @Inject constructor(
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
             delay(TIME_MILLIS)
-            fetchCharacters(page, query)
+            fetchCharacters(page, query, "")
         }
         searchJob = viewModelScope.launch {
             delay(TIME_MILLIS)
-            fetchEpisodes(page, query)
+            fetchEpisodes(page, query, "")
         }
         searchJob = viewModelScope.launch {
             delay(TIME_MILLIS)
-            fetchLocations(page, query)
+            fetchLocations(page, query, "", "")
         }
     }
 }

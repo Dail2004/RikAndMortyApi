@@ -9,6 +9,8 @@ interface LocationApiService {
     @GET("location")
     suspend fun fetchLocations(
         @Query("page") page: Int,
-        @Query("name") name: String
+        @Query("name") name: String,
+        @Query("type") type: String,
+        @Query("dimension") dimension: String
     ): ResponseDto<LocationDto>
 }

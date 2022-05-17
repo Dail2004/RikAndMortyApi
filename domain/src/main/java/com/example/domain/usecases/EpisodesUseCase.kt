@@ -6,5 +6,5 @@ import javax.inject.Inject
 class EpisodesUseCase @Inject constructor(
     private val repository: EpisodesRepository
 ) {
-    operator fun invoke(page: Int, name: String) = repository.fetchEpisode(page, name)
+    operator fun invoke(page: Int, name: String, episode: String) = repository.fetchEpisode(page, name, episode)
 }

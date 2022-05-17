@@ -5,5 +5,5 @@ import com.example.domain.model.episode.EpisodesModel
 import kotlinx.coroutines.flow.Flow
 
 interface EpisodesRepository {
-    fun fetchEpisode(page: Int, name: String) : Flow<Resource<List<EpisodesModel>>>
+    fun fetchEpisode(page: Int, name: String, episode: String) : Flow<Resource<List<EpisodesModel>>>
 }

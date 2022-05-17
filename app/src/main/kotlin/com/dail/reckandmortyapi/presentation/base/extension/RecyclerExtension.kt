@@ -9,7 +9,7 @@ fun RecyclerView.scrollListenNextPage(viewModel: BaseRequest) {
             super.onScrollStateChanged(recyclerView, newState)
             if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
                 viewModel.page++
-                viewModel.fetchCharacters(viewModel.page, "")
+                viewModel.fetchCharacters(viewModel.page, "","")
             }
         }
     })

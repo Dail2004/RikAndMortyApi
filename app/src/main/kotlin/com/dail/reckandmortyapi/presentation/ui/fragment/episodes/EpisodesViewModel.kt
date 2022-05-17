@@ -30,6 +30,11 @@ class EpisodesViewModel @Inject constructor(
     val searchQuery = _searchQuery.asStateFlow()
     private var searchJob: Job? = null
     override var page = 1
+    override fun fetchCharacters(page: Int, name: String, status: String) {
+    }
+
+    override fun fetchLocations(page: Int, name: String, type: String, dimension: String) {
+    }
 
     companion object {
         const val TIME_MILLIS = 500L
@@ -46,23 +51,17 @@ class EpisodesViewModel @Inject constructor(
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
             delay(TIME_MILLIS)
-            fetchEpisodes(page, query)
+            fetchEpisodes(page, query, "")
         }
     }
 
     init {
-        fetchLocations(page, "")
-        fetchEpisodes(page, "")
+        fetchEpisodes(page, "", "")
     }
 
-    override fun fetchCharacters(page: Int, name: String) {
 
+    override fun fetchEpisodes(page: Int, name: String, episode: String) {
+        useCase(page, name, episode).collectRequest(_episodesState) { it.map { data -> data.toUI() } }
     }
 
-    override fun fetchEpisodes(page: Int, name: String) {
-        useCase(page, name).collectRequest(_episodesState) { it.map { data -> data.toUI() } }
-    }
-
-    override fun fetchLocations(page: Int, name: String) {
-    }
 }
