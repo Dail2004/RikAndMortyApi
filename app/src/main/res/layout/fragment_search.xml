@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#252525"
+    tools:context="com.dail.reckandmortyapi.presentation.ui.fragment.search.SearchFragment">
+
+    <SearchView
+        android:id="@+id/search_all_parameters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/white"
+        android:focusable="false"
+        android:iconifiedByDefault="false"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:paddingStart="10dp"
+        android:queryHint="Поиск по всем"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_all_parameters" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
